@@ -1,6 +1,6 @@
 # xargs
 
-将结果按行/单词拆分，逐个作为文件参数调用另一个命令
+将管道传过来的结果按行/单词拆分，逐个作为参数调用另一个命令
 
 示例：
 
@@ -47,5 +47,22 @@ ls | xargs -I {} echo {}
 
 # 执行多个命令
 ls | xargs -I {} bash -c "echo {} && cat {}"
+```
+
+
+
+```bash
+# xargs代替循环
+echo {1..5} | xargs printf -- 'hello %s\n' | xargs -I {} bash -c "echo; echo {}"
+
+hello1
+
+hello2
+
+hello3
+
+hello4
+
+hello5
 ```
 

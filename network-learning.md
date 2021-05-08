@@ -297,3 +297,63 @@ http://shareinto.github.io/2017/07/10/docker-ip/
 
 https://stackoverflow.com/questions/30677702/trouble-running-upnp-on-docker
 
+
+
+## IPv6
+
+测试本机IPv6   http://test-ipv6.com/
+Ping IPv6  http://www.ipv6now.com.au/pingme.php
+
+### IPv6表示
+
+表示法 X:X:X:X:X:X:X:X，每个X代表16b，即4个16进制字符，8组，总共128b
+例如 ABCD:EF01:2345:6789:ABCD:EF01:2345:6789
+每个X前面的0可以省略，例如
+- 2001:0DB8:0000:0023:0008:0800:200C:417A
+- 2001:DB8:0:23:8:800:200C:417A
+
+连续的一段0可以压缩为`::`，但是只能出现一次，保证地址可以正确被解析
+- FF01:0:0:0:0:0:0:1101 → FF01::1101
+- 0:0:0:0:0:0:0:1 → ::1
+- 0:0:0:0:0:0:0:0 → ::
+
+可以将IPv4地址嵌入IPv6，实现IPv4-IPv6互通，IPv4部分用十进制表示
+- ::192.168.0.1 与 ::FFFF:192.168.0.1
+
+https://baike.baidu.com/item/IPv6
+
+
+### IPv6地址类型
+
+IPv6一般有
+- 公网IPv6，IPv6 Address，2xxx开头
+- 临时IPv6，Temporary IPv6 Address，有效期短
+- 本地IPv6，Link-local IPv6 Address，用于内网，fe80开头
+
+Windows关闭临时IPv6： `netsh interface IPv6 set privacy state=disable`
+
+Linux设备运行`ip a`显示的IPv6示例，其中：
+- 第一个是公网固定IP，scope global
+- 第二个是临时IP，scope global且有dynamic，并显示了剩余时间
+- 第三个是本地IP，scope link
+(备注：两个xxxx是相同的，被替换掉了，避免公开IP地址)
+
+```bash
+inet6 240e:3a1:xxxx:911::8a2/64 scope global
+    valid_lft forever preferred_lft forever
+inet6 240e:3a1:xxxx:911:211:32ff:fe95:d49e/64 scope global mngtmpaddr dynamic
+    valid_lft 5823sec preferred_lft 2222sec
+inet6 fe80::211:32ff:fe95:d49e/64 scope link
+    valid_lft forever preferred_lft forever
+```
+
+展开观察
+- 240e:03a1:xxxx:0911:0000:0000:0000:08a2/64
+- 240e:03a1:xxxx:0911:0211:32ff:fe95:d49e/64
+- fe80:0000:0000:0000:0211:32ff:fe95:d49e/64
+
+参考
+https://zh.wikipedia.org/wiki/%E9%93%BE%E8%B7%AF%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80
+https://post.smzdm.com/p/aqndw6op/
+https://cloud.tencent.com/developer/news/586185
+https://www.sohu.com/a/416649911_404443

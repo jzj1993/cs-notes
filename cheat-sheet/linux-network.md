@@ -26,6 +26,69 @@ telnet localhost 8888
 
 ## 修改网卡参数
 
+### Ubuntu
+
+make sure cloud init is disabled
+
+```bash
+# disable cloud init
+sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
+# modify to this if it is not:
+# network: {config: disabled}
+```
+
+manage and apply config
+
+```bash
+# modify network config file (ubuntu 20.04)
+sudo vim /etc/netplan/00-installer-config.yaml
+
+# try config with auto rollback
+sudo netplan try
+# apply config permanently
+sudo netplan apply
+# reboot
+sudo reboot
+```
+
+Examples of config file:
+
+1、use NetworkManager (default on Ubuntu Desktop)
+
+```bash
+# Let NetworkManager manage all devices on this system
+network:
+  version: 2
+  renderer: NetworkManager
+```
+
+2、use static ip address
+
+```bash
+network:
+  version: 2
+  ethernets:
+    ens18:
+      addresses: [192.168.5.20/24]
+      gateway4: 192.168.5.2
+      nameservers:
+        addresses: [114.114.114.114, 223.5.5.5]
+```
+
+3、use dhcp dynamic address
+
+```bash
+network:
+  version: 2
+  ethernets:
+    ens18:
+      dhcp4: true
+```
+
+https://linuxhint.com/setup_static_ip_address_ubuntu/
+
+https://ubuntu.com/server/docs/network-configuration
+
 
 
 ### OpenWRT
@@ -83,73 +146,6 @@ config interface 'wan6'
 ```
 
 https://openwrt.org/zh-cn/doc/uci/network
-
-
-
-### Ubuntu
-
-```bash
-# disable cloud init
-sudo vim /etc/cloud/cloud.cfg.d/subiquity-disable-cloudinit-networking.cfg
-# modify to this if it is not:
-# network: {config: disabled}
-```
-
-
-
-```bash
-# ubuntu 20.04 network config file
-sudo vim /etc/netplan/00-installer-config.yaml
-```
-
-use NetworkManager (default on Ubuntu Desktop)
-
-```bash
-# Let NetworkManager manage all devices on this system
-network:
-  version: 2
-  renderer: NetworkManager
-```
-
-use static ip address
-
-```bash
-network:
-  version: 2
-  ethernets:
-    ens18:
-      addresses: [192.168.1.10/24]
-      gateway4: 192.168.1.1
-      nameservers:
-        addresses: [192.168.1.1]
-```
-
-use dhcp dynamic address
-
-```bash
-network:
-  version: 2
-  ethernets:
-    ens18:
-      dhcp4: true
-```
-
-
-
-```bash
-# restart network
-sudo netplan try
-# apply confg permanently
-sudo netplan apply
-# reboot
-sudo reboot
-```
-
-
-
-https://linuxhint.com/setup_static_ip_address_ubuntu/
-
-https://ubuntu.com/server/docs/network-configuration
 
 
 
