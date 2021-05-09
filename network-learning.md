@@ -301,8 +301,12 @@ https://stackoverflow.com/questions/30677702/trouble-running-upnp-on-docker
 
 ## IPv6
 
-测试本机IPv6   http://test-ipv6.com/
-Ping IPv6  http://www.ipv6now.com.au/pingme.php
+### IPv6测试
+
+- 测试本机IPv6   http://test-ipv6.com/
+- Ping IPv6  http://www.ipv6now.com.au/pingme.php
+
+- 命令行测试本机IPv6    `curl http://v4v6.ipv6-test.com/api/myip.php`
 
 ### IPv6表示
 
@@ -333,7 +337,10 @@ IPv6一般有
 
 Windows关闭临时IPv6： `netsh interface IPv6 set privacy state=disable`
 
+### IPv6查看
+
 下面是Linux设备运行 `ip addr` 显示的IPv6示例，其中：
+
 - 第一个是公网固定IP，显示 `scope global`
 - 第二个是临时IP，显示 `scope global` + `dynamic`，以及剩余时间
 - 第三个是本地IP，显示 `scope link`
