@@ -305,41 +305,104 @@ https://stackoverflow.com/questions/30677702/trouble-running-upnp-on-docker
 
 - 测试本机IPv6   http://test-ipv6.com/
 - Ping IPv6  http://www.ipv6now.com.au/pingme.php
-
 - 命令行测试本机IPv6    `curl http://v4v6.ipv6-test.com/api/myip.php`
+- 浏览器访问：`http(s)://[x:x:x:x:x:x]`
+
+
 
 ### IPv6表示
 
 表示法 `X:X:X:X:X:X:X:X`，每个X代表16b，即4个16进制字符，8组，总共128b
 例如 `ABCD:EF01:2345:6789:ABCD:EF01:2345:6789`
-每个X前面的0可以省略，例如
 
-- `2001:0DB8:0000:0023:0008:0800:200C:417A`
-- `2001:DB8:0:23:8:800:200C:417A`
+1. 每项前面的0可以省略，例如
 
-连续的一段0可以压缩为`::`，但是只能出现一次，保证地址可以正确被解析
-- `FF01:0:0:0:0:0:0:1101` → `FF01::1101`
-- `0:0:0:0:0:0:0:1` → `::1`
-- `0:0:0:0:0:0:0:0` → `::`
+    - `2001:0DB8:0000:0023:0008:0800:200C:417A`
+    - `2001:DB8:0:23:8:800:200C:417A`
 
-可以将IPv4地址嵌入IPv6，实现IPv4-IPv6互通，IPv4部分用十进制表示
-- `::192.168.0.1` 与 `::FFFF:192.168.0.1`
+2. 连续的一段0可以压缩为`::`，但只能出现一次，保证地址可以正确被解析
 
-https://baike.baidu.com/item/IPv6
+    - `FF01:0:0:0:0:0:0:1101` → `FF01::1101`
+    - `0:0:0:0:0:0:0:1` → `::1`
+    - `0:0:0:0:0:0:0:0` → `::`
+
+3. IPv6可以表示IPv4映射地址，后32位用十进制
+
+	- `::ffff:192.168.89.9` = `::ffff:c0a8:5909`
+
 
 
 ### IPv6地址类型
 
-IPv6一般有
-- 公网IPv6，IPv6 Address，2xxx开头
-- 临时IPv6，Temporary IPv6 Address，有效期短。考虑到安全性，系统一般默认会把临时IPv6暴露到外部。
-- 本地IPv6，Link-local IPv6 Address，用于内网，fe80开头
+有下面三种地址，没有广播地址
+
+- 单播地址：发给某个设备
+- 任播地址：发给任意一个设备
+- 组播地址：发给一组设备
+
+
+
+## IPv6地址分配
+
+
+
+典型的IPv6单播地址：全局路由前缀+子网ID+64位接口ID
+
+
+
+接口ID生成算法：
+
+- EUI-64，根据mac地址生成 [EUI-64 Calculator (princelle.org)](https://eui64-calc.princelle.org/)
+
+- RFC3041，用随机数字代替mac地址转换结果，定期刷新，确保安全。
+
+
+
+网卡自带一个链路本地地址 / Link-local IPv6 Address：`fe80固定前缀 + EUI-64生成接口ID`
+
+
+
+由于IPv6数量庞大，一个子网内的设备很多，静态设置很容易冲突，一般用自动配置。
+
+IPv6地址自动配置：
+
+- SLAAC / Stateless Auto Address Configuration：
+  1. RS(Router Solicitation)消息：网卡Link-local地址 --> 所有路由器组播地址`ff02::2`
+  2. RA(Router Advertisement)消息，路由器定期发送RA，或收到RS发送RA：路由器 --> 组播地址`ff02::1`
+  3. 网卡IPv6：RA中的prefix + EUI-64，网关：路由器Link-local地址。
+
+- Stateful DHCPv6：类似DHCP，但不支持路由、子网掩码长度。
+  1. DHCPv6请求：网卡Link-local地址 --> 组播地址`ff02::1:2`
+  2. DHCPv6数据：DHCPv6 Server --> 网卡Link-local地址
+- Stateless DHCPv6：结合SLAAC、Stateful DHCPv6
+  1. 路由器发送RA数据，网卡设置网关，RA中参数指定是否使用DHCPv6
+  2. 网卡请求DHCPv6
+
+
+
+常见IPv6有：
+
+- 固定地址 / IPv6 Address：2xxx开头
+- 临时地址 / Temporary IPv6 Address：可用RFC3041生成随机接口ID。
+- Link-local IPv6 Address
+
+
 
 Windows关闭临时IPv6： `netsh interface IPv6 set privacy state=disable`
 
-### IPv6查看
 
-下面是Linux设备运行 `ip addr` 显示的IPv6示例，其中：
+
+参考
+
+- [IPv6 --- 动态地址配置 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/79405231)
+
+- [IPv6地址自动配置中的有状态(stateful)和无状态(stateless)的区别 - 华为云 (huaweicloud.com)](https://www.huaweicloud.com/articles/5686cfadcf7d4d099f9f1edb96689401.html)
+
+
+
+### IPv6实例
+
+在某Linux设备上运行 `ip addr` 得到的IPv6如下。其中：
 
 - 第一个是公网固定IP，显示 `scope global`
 - 第二个是临时IP，显示 `scope global` + `dynamic`，以及剩余时间
@@ -356,13 +419,29 @@ inet6 fe80::211:32ff:fe95:d49e/64 scope link
     valid_lft forever preferred_lft forever
 ```
 
-展开观察
+展开观察，地址1和2都是全局IP，前缀相同，地址2和3用了EUI-64
+
 - `240e:03a1:xxxx:0911:0000:0000:0000:08a2/64`
 - `240e:03a1:xxxx:0911:0211:32ff:fe95:d49e/64`
 - `fe80:0000:0000:0000:0211:32ff:fe95:d49e/64`
 
-参考
-https://zh.wikipedia.org/wiki/%E9%93%BE%E8%B7%AF%E6%9C%AC%E5%9C%B0%E5%9C%B0%E5%9D%80
+
+
+### 参考
+
+[IPv6 - 维基百科，自由的百科全书 (wikipedia.org)](https://zh.wikipedia.org/wiki/IPv6)
+
+[链路本地地址 - 维基百科，自由的百科全书 (wikipedia.org)](https://zh.wikipedia.org/wiki/链路本地地址)
+
+
+
+[ip-address: protocol address management - Linux Man Pages (8) (systutorials.com)](https://www.systutorials.com/docs/linux/man/8-ip-address/)
+
+[routing - Where is this IPv6 address coming from? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/352544/where-is-this-ipv6-address-coming-from)
+
 https://post.smzdm.com/p/aqndw6op/
+
 https://cloud.tencent.com/developer/news/586185
+
 https://www.sohu.com/a/416649911_404443
+

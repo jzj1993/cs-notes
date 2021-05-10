@@ -217,3 +217,36 @@ Host github.com
 
 https://www.linode.com/docs/guides/configure-firewall-with-ufw/
 
+
+
+## ip命令
+
+
+
+```bash
+# 查看网卡和IP
+ip a
+ip addr
+ip address
+
+# 查看固定IP
+ip address show permanent
+
+# 监听ip变化事件
+ip monitor
+
+# 查看网卡信息
+ip link
+
+# 查看网关
+ip route show default
+# 查看IPv6网关
+ip -6 route show default
+```
+
+
+
+[routing - Where is this IPv6 address coming from? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/352544/where-is-this-ipv6-address-coming-from)
+
+[ip-address: protocol address management - Linux Man Pages (8) (systutorials.com)](https://www.systutorials.com/docs/linux/man/8-ip-address/)
+
