@@ -17,17 +17,46 @@ nano /etc/hosts
 /etc/init.d/networking restart
 
 # restart network card
-ifdown NETWORK
-ifup NETWORK
+ifreload NETWORK
+# or
+ifdown NETWORK && ifup NETWORK
 ```
 
 
 
+## aliyun源
+
+```bash
+vim /etc/apt/sources.list
+```
+
+```bash
+deb http://mirrors.aliyun.com/debian/ buster main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib
+deb http://mirrors.aliyun.com/debian-security buster/updates main
+deb-src http://mirrors.aliyun.com/debian-security buster/updates main
+deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib
+deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib
+deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib
+```
 
 
-## 下载enterprise包
 
-默认只有enterprise才能直接从apt源安装pve的包，可以自己手动在这里下载
+## Enterprise源
+
+替换默认需要subscription的源为不需要subscription的源
+
+```bash
+vim /etc/apt/sources.list.d/pve-enterprise.list
+```
+
+```bash
+deb http://download.proxmox.com/debian/pve stretch pve-no-subscription
+# deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
+```
+
+也可以手动下载包
 
 http://enterprise.proxmox.com/debian/pve/dists/buster/pvetest/binary-amd64/
 
