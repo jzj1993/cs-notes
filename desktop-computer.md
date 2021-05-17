@@ -214,15 +214,23 @@ https://zh.wikipedia.org/wiki/%E7%83%AD%E8%AE%BE%E8%AE%A1%E5%8A%9F%E8%80%97
 
 
 
-### PCIe通道、PCIe接口
+### PCIe通道与PCIe接口
 
 [PCI Express - 维基百科，自由的百科全书 (wikipedia.org)](https://zh.wikipedia.org/wiki/PCI_Express)
 
-1. 简介：PCIe协议用于连接高速通信设备，CPU+芯片组决定了最大支持的PCIe通道数量和速率。
-1. PCIe接口提供PCIe通道的连接，扩展性强，常用于显卡、固态硬盘、高速网卡等设备，也很容易买到基于PCIe的USB、声卡、SATA接口等各种扩展卡。图中的左下角水平放置的就是PCIe接口。除了PCIe插座，M2等接口也会占用PCIe通道。
+[深入PCI与PCIe之一：硬件篇 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/26172972)
+
+[PCI-Express 接口供电能力详解 - 开文日志 (nomox.cn)](https://www.nomox.cn/post/pcie-power-supply-ability/)
+
+[小科普 | PCIe通道到底怎么算？_电脑配件_什么值得买 (smzdm.com)](https://post.smzdm.com/p/a3gw3zdd/)
+
+1. 简介：PCIe协议用于连接高速通信设备，CPU+芯片组决定了最大支持的PCIe通道数量和速率。PCIe通道可以连接到PCIe、M.2 NVMe等接口上。
+1. PCIe接口：扩展性强，常用于显卡、固态硬盘、高速网卡等设备，也很容易买到基于PCIe的USB、声卡、SATA接口等各种扩展卡。图中的左下角水平放置的就是PCIe接口。
+1. 供电：PCIe接口本身可以提供最大75W供电。显卡等高功耗设备需要从电源连接单独的供电线。
 1. 版本和兼容性：目前最新版本为PCIe 4.0。PCIe高版本和低版本插槽是兼容的，实际速率取决于插槽、设备谁的速度更低。
 1. 传输速率：完整的PCIe接口包含16个通道，即PCIe x16。以PCIe 4.0为例，每个通道可以提供约16Gbps=2GB/s的原始速度，16通道原始总速度32GB/s，考虑到编码问题，实际速度31.5GB/s。**如果你需要接高速SSD、万兆网卡等设备，可能需要计算一下PCIe带宽。**
-1. 通道和工作模式：外观是PCIe x16的插座，实际上可能插座里只有部分触点，工作在x16, x8, x4, x2, x1的模式下（速度会下降）。由于 CPU+芯片组 可以提供的PCIe通道数量有限，不同主板对PCIe通道的分配也不一样，有些还可以设置PCIe插座工作模式。我们甚至可以用胶带把PCIe x16的显卡插口右边部分触点贴起来，于是显卡就会工作在PCIe x1的模式下。
+1. 通道和工作模式：外观是PCIe x16的插座，实际上可能插座里只有部分触点，工作在x16, x8, x4, x2, x1的模式下（速度会下降）。由于 CPU+芯片组 可以提供的PCIe通道数量有限，不同主板对PCIe通道的分配也不一样，有些主板还可以设置PCIe拆分。我们甚至可以用胶带把PCIe x16的显卡插口右边部分触点贴起来，于是显卡就会工作在PCIe x1的模式下。
+1. PCIe扩展：可以使用南桥芯片/主板板载PLX芯片，将PCIe通道拆分出更多PCIe接口（类似USBHub），可以连接更多设备但是总速率不变。对速度要求高的显卡等设备最好插在直连CPU的PCIe插槽上（一般也就是最靠近CPU的PCIe接口）。
 
 ![img](desktop-computer.assets/v2-4af20ccfa9f950e22db202e4a8816219_1440w.jpg)
 
@@ -264,11 +272,92 @@ https://zh.wikipedia.org/wiki/%E7%83%AD%E8%AE%BE%E8%AE%A1%E5%8A%9F%E8%80%97
 
 
 
-## 固态硬盘 / SSD / Solid State Drive
+## 硬盘 / Hard Drive
+
+硬盘用于保存数据，包括系统、软件数据，文档数据等，断电后文件不会丢失。主要分为机械硬盘和固态硬盘，以及结合两者的混合硬盘。
+
+- 机械硬盘 / HDD / Hard Drive
+
+- 固态硬盘 / SSD / Solid State Drive
+- 固态混合硬盘 / SSHD / Solid State Hybrid Drive
 
 
 
-## 机械硬盘 / HDD / Hard Drive
+### 机械硬盘与固态硬盘对比
+
+- 机械硬盘：噪音较大，抗震能力更差，速度慢。价格便宜，寿命长，数据安全性相对高，删除数据找回的可能性更大。
+- 固态硬盘：速度快，连续读写速度通常高于机械硬盘，IOPS、随机读写能力远比机械硬盘好（简单理解成每秒能进行的读写次数），因为机械硬盘是机械结构，寻址需要花费较长时间。价格昂贵，寿命相对短。
+
+[如何在固态硬盘、固态混合硬盘和传统硬盘之间做出选择，以实现更好的笔记本电脑性能 | Seagate 中国](https://www.seagate.com/cn/zh/do-more/how-to-choose-between-hdd-storage-for-your-laptop-master-dm/)
+
+
+
+### 固态硬盘寿命
+
+固态硬盘寿命参数如下，保证在标注的参数范围内硬盘足够可靠，超出范围，硬盘**可能会坏**。
+
+- P/E (Program / Erase)：存储颗粒可以写入的次数。
+
+- TBW (TB Write)：累计可以写入多少TB数据。
+- DWPD (Drive Writes Per Day)：保修期范围内，每天可以全盘写入硬盘多少次。
+
+大致的换算方法：例如1TB硬盘，PE=1000，则累计可以写入1000TB，即TBW=1000。保修期算5年，总共可以写1000次，则每天全盘可写入次数 DWPD = 1000 / (365*5) = 0.55。
+
+[SSD固态硬盘选购指标-寿命：P/E、TBW 、DWPD - 简书 (jianshu.com)](https://www.jianshu.com/p/ce9edc670de7)
+
+[SSD的P/E和TBW都是什么？又有什么区别？ - 哔哩哔哩专栏 (bilibili.com)](https://www.bilibili.com/read/cv1083087/)
+
+
+
+### 固态硬盘存储颗粒
+
+- 主要有SLC、MLC、TLC、QLC，成本依次降低，寿命依次减少。
+
+- 目前市面上消费级产品TLC最多，企业级产品MLC较多。
+- 在未来QLC有望实现超大容量超低价格的硬盘，部分取代大容量机械硬盘。
+
+[一篇文章告诉你SLC、MLC、TLC和QLC究竟有啥区别? - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/53547723)
+
+[【TLC固态硬盘的寿命真的那么不堪吗？】 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/77544563)
+
+
+
+### 磁盘阵列 / RAID / Redundant Array of Independent Disks
+
+可以使用磁盘阵列技术，把多块硬盘组成磁盘阵列，实现更快的速度或更高的安全性。举例：
+
+- RAID0：数据分块保存到多个硬盘。读写的时候同时从多个硬盘读写，因此可以实现速度翻倍。注意，机械硬盘组RAID0可以实现连续读写速度超过SSD，但是随机读写速度还是会远不如SSD，因为不能有效缩短寻址时间。
+- RAID1：数据同时保存到多块硬盘。只要N个硬盘有一块是好的，数据就不会丢失，适合安全性要求很高的场合。
+
+其他RAID模式参考 [RAID - 维基百科，自由的百科全书 (wikipedia.org)](https://zh.wikipedia.org/wiki/RAID)
+
+
+
+### 网络附加存储 / NAS / **N**etwork **A**ttached **S**torage
+
+NAS相当于一个硬盘容量很大的小电脑，专门用于保存数据，其他设备通过网络访问NAS上的数据。
+
+- 局域网内速度足够快时，可以直接挂载NAS分区当本地硬盘使用。例如摄影、视频剪辑用户可以直接用MacBook工作，数据放在NAS里。
+- 电视机播放NAS中的高清影视数据。
+- 方便的在不同设备之间共享文件。
+- 配合互联网，NAS可以提供私有网络云盘、笔记、聊天工具等服务。
+- 对于专业用户，还可以做软路由、Git仓库，甚至搭建网站等。
+
+NAS品牌：
+
+- 群晖 / Synology。配套软件全面，开箱即用，适合不想折腾的人。
+- 威联通 / QNAP。扩展能力强，可玩性更高，性价比略高于群晖。
+- 其他DIY设备，例如蜗牛星际，各种小电脑、台式机等。
+
+
+
+### 总结
+
+对于多数用户的建议：
+
+- 容量合适的固态硬盘，用于存放系统、软件等对于速度要求较高的场合。没有重度文件写入需要，所以选择TLC颗粒的SSD就足够了。
+- 大容量机械硬盘，用于文件下载、存放文档等需要大量写入或大量存储空间的场合。
+- 更多特殊需求，使用RAID和NAS实现。
 
 
 
