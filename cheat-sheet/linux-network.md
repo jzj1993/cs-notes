@@ -21,6 +21,9 @@
 ping 8.8.8.8
 ping www.google.com
 
+# 查看DNS解析结果。如果设置了代理，结果会指向代理服务器。
+nslookup www.google.com
+
 # 测试网址
 curl www.google.com
 
@@ -286,5 +289,4 @@ Host github.com
 ## 软件防火墙 ufw
 
 https://www.linode.com/docs/guides/configure-firewall-with-ufw/
-
 
