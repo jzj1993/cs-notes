@@ -2,7 +2,7 @@
 
 
 
-## 磁盘和分区查看
+## 磁盘和分区查看 df lsblk fdisk
 
 ```bash
 $ df -h               # 挂载磁盘占用率
@@ -56,7 +56,7 @@ $ ll /dev/disk/by-id      # 根据ID查看磁盘
 
 
 
-## fdisk分区
+## 分区 fdisk
 
 ```bash
 # 列举硬盘
@@ -76,7 +76,7 @@ https://askubuntu.com/questions/156994/partition-does-not-start-on-physical-sect
 
 
 
-## 格式化分区
+## 格式化分区 mkfs
 
 ```bash
 # 格式化分区为ext4
@@ -85,7 +85,7 @@ mkfs.ext4 /dev/sdc1
 
 
 
-## 磁盘挂载
+## 磁盘挂载 mount umount
 
 ```bash
 sudo mount /dev/sdb1 /data  # 挂载磁盘分区到目录
@@ -106,4 +106,13 @@ sudo umount /mnt/hdd # 取消挂载
 ```
 
 
+
+## 检查分区 e2fsck
+
+检查和修复ext分区
+
+```bash
+sudo umount /dev/sdb
+e2fsck /dev/sdb -fy
+```
 

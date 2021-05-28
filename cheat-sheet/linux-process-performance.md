@@ -105,9 +105,33 @@ top -o %MEM
 ## iotop
 
 ```bash
-apt install -y iotop
+sudo apt install -y iotop
 
 # 查看IO活动
-iotop
+sudo iotop
 ```
+
+
+
+## iftop
+
+```bash
+apt install -y iftop
+
+# 查看网络活动
+sudo iftop
+```
+
+
+
+## lsof
+
+```bash
+# 查看打开的文件/设备等
+lsof
+
+lsof /mnt/disk
+```
+
+[3. lsof 一切皆文件 — Linux Tools Quick Tutorial (linuxtools-rst.readthedocs.io)](https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/lsof.html)
 
