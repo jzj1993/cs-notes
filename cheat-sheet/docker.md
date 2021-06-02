@@ -186,11 +186,13 @@ docker update --restart=unless-stopped $(docker ps -q -a)
 
 
 
-## system
+## performance
 
 ```bash
 # 查看docker占用磁盘空间
 docker system df
+# 查看容器实时性能
+docker stats
 ```
 
 
