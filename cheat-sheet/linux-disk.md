@@ -2,10 +2,18 @@
 
 
 
-## 磁盘和分区查看 df lsblk fdisk
+磁盘可以从三个层级来看
+
+1. 磁盘硬件设备
+2. 磁盘分区
+3. 文件系统
+
+
+
+## 磁盘设备、分区查看 df lsblk fdisk
 
 ```bash
-$ df -h               # 挂载磁盘占用率
+$ df -h               # 查看挂载的磁盘分区（文件系统）
 Filesystem      Size  Used Avail Use% Mounted on
 # ...
 udev            3.9G     0  3.9G   0% /dev
@@ -13,7 +21,7 @@ udev            3.9G     0  3.9G   0% /dev
 /dev/nvme0n1p1  229G  185G   32G  86% /data
 
 
-$ lsblk               # 查看磁盘和分区
+$ lsblk               # 查看磁盘和分区（磁盘）
 NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
 # ...
 sda           8:0    0    64G  0 disk
@@ -24,7 +32,7 @@ nvme0n1     259:0    0 232.9G  0 disk
 └─nvme0n1p1 259:1    0 232.9G  0 part /data
 
 
-$ sudo fdisk -l       # 查看磁盘设备
+$ sudo fdisk -l       # 查看磁盘设备（设备）
 # ...
 Disk /dev/nvme0n1: 232.91 GiB, 250059350016 bytes, 488397168 sectors
 Disk model: Samsung SSD 970 EVO 250GB
@@ -56,7 +64,7 @@ $ ll /dev/disk/by-id      # 根据ID查看磁盘
 
 
 
-## 分区 fdisk
+## 分区工具 fdisk
 
 ```bash
 # 列举硬盘
@@ -76,7 +84,35 @@ https://askubuntu.com/questions/156994/partition-does-not-start-on-physical-sect
 
 
 
-## 格式化分区 mkfs
+## 分区工具 parted
+
+```bash
+# 执行操作前先umount相关分区
+sudo umount /dev/sdc1
+
+# 启动parted并指定磁盘
+sudo parted /dev/sdc
+
+# 查看帮助
+(parted) help
+
+# 打印信息
+(parted) print
+
+# 分区大小调整
+(parted) resizepart
+Partition number? 1
+End?  [107GB]? 215GB
+# or
+(parted) resizepart 1 100%
+
+# 退出
+(parted) quit
+```
+
+
+
+## 格式化分区（创建文件系统） mkfs
 
 ```bash
 # 格式化分区为ext4
@@ -85,7 +121,7 @@ mkfs.ext4 /dev/sdc1
 
 
 
-## 磁盘挂载 mount umount
+## 分区挂载 mount umount
 
 ```bash
 sudo mount /dev/sdb1 /data  # 挂载磁盘分区到目录
@@ -107,6 +143,18 @@ sudo umount /mnt/hdd # 取消挂载
 
 
 
+解决 umount `target is busy` 问题
+
+```bash
+# 查看占用的PID
+lsof /mnt/xxx
+
+# 停止相关进程
+kill PID
+```
+
+
+
 ## 检查分区 e2fsck
 
 检查和修复ext分区
@@ -115,4 +163,93 @@ sudo umount /mnt/hdd # 取消挂载
 sudo umount /dev/sdb
 e2fsck /dev/sdb -fy
 ```
+
+
+
+## LVM分区扩容/缩容
+
+物理分区
+
+```bash
+# Enlarge the physical volume to occupy the whole available space in the partition
+pvresize /dev/vda3
+```
+
+逻辑分区
+
+```bash
+# 查看LVM逻辑分区
+lvdisplay
+
+# 扩容到100G。其中 /dev/xxx 为 LV Path
+lvextend -L 100G /dev/xxx
+
+# 增加20G
+lvresize --size +20G --resizefs /dev/xxx
+
+# 扩容到最大
+lvextend -l +100%FREE /dev/xxx
+
+# 扩容到最大
+lvresize --extents +100%FREE --resizefs /dev/xxx
+
+# 缩容到80G
+lvreduce -L 80G /dev/xxx
+```
+
+
+
+[lvm磁盘在线扩缩容 | Louis Blog (fenghong.tech)](https://www.fenghong.tech/blog/ops/lvm-reduce-extend/)
+
+[Resize disks - Proxmox VE](https://pve.proxmox.com/wiki/Resize_disks#3._Enlarge_the_filesystem.28s.29_in_the_partitions_on_the_virtual_disk)
+
+
+
+## Linux虚拟机磁盘扩容步骤
+
+1. Host上扩容VM的磁盘（VPS后台操作，或PVE调整LVM分区大小等）
+2. Guest中扩容分区
+3. Guest中扩容文件系统
+
+缩容步骤与上述相反。
+
+
+
+### 使用parted扩容分区
+
+```bash
+sudo umount /dev/sdc1
+sudo parted /dev/sdc
+
+# print info
+(parted) print
+
+# use resizepart to resize partition
+(parted) resizepart
+Partition number? 1
+End?  [107GB]? 215GB
+# or
+(parted) resizepart 1 100%
+
+# quit parted
+(parted) quit
+```
+
+
+
+### 使用resize2fs扩容文件系统（非LVM文件系统）
+
+```bash
+# verify partitio consistency
+sudo e2fsck -f /dev/sdc1
+
+# resize file system
+sudo resize2fs /dev/sdc1
+```
+
+
+
+[Expand virtual hard disks on a Linux VM - Azure Virtual Machines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks)
+
+[Resize disks - Proxmox VE](https://pve.proxmox.com/wiki/Resize_disks)
 
