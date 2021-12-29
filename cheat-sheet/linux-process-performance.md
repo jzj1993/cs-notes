@@ -100,8 +100,6 @@ top -o %MEM
 
 
 
-
-
 ## iotop
 
 ```bash
@@ -134,4 +132,3 @@ lsof /mnt/disk
 ```
 
 [3. lsof 一切皆文件 — Linux Tools Quick Tutorial (linuxtools-rst.readthedocs.io)](https://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/lsof.html)
-
