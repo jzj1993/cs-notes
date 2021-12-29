@@ -97,7 +97,7 @@ ssh -R 0.0.0.0:8080:localhost:3000 -N -f user@ssh-server.com -o ServerAliveInter
 常用参数
 
 ```bash
--D  # 动态代理 
+-D  # 动态代理
 -L  # 本地端口转发
 -R  # 远程端口转发
 
@@ -126,6 +126,3 @@ https://www.myfreax.com/how-to-setup-ssh-tunneling/
 https://www.ruanyifeng.com/blog/2011/12/ssh_port_forwarding.html
 
 https://segmentfault.com/a/1190000020766229
-
-
-

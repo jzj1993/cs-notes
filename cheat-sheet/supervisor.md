@@ -142,17 +142,17 @@ sudo systemctl enable supervisor
 
 ## 参考
 
-ubuntu部署shadowsocks 
+ubuntu部署shadowsocks
  https://www.chedanji.com/ubuntu-shadowsocks/
 
-supervisor安装部署文档和管理实例 
+supervisor安装部署文档和管理实例
  http://blog.csdn.net/shanliangliuxing/article/details/15499891
 
-Ubuntu 14.04下进程管理工具supervisor安装 
+Ubuntu 14.04下进程管理工具supervisor安装
  http://lambda.hk/nginx/2015/05/01/nginx-supervisor/
 
-使用supervisor进行进程监控和自启动管理 
+使用supervisor进行进程监控和自启动管理
  https://3rgb.com/entry/daemon_control_autostart_with_supervisor
 
-Supervisor doesn't start on startup on Ubuntu 16.04 
+Supervisor doesn't start on startup on Ubuntu 16.04
  http://stackoverflow.com/questions/38551851/supervisor-doesnt-start-on-startup-on-ubuntu-16-04

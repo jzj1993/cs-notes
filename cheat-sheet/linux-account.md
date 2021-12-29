@@ -12,7 +12,7 @@ sudo passwd root
 
 ## 创建新账户
 
-创建用户，并为其创建主目录和shell 
+创建用户，并为其创建主目录和shell
 
 ```bash
 sudo useradd -s /bin/bash -d /home/USERNAME -m -G sudo USERNAME
@@ -56,7 +56,7 @@ sudo -i
 # user
 su -l USERNAME
 
-su USERNAME  # 切换到其他用户，但是不切换环境变量 
+su USERNAME  # 切换到其他用户，但是不切换环境变量
 su - USERNAME  # 完整的切换到新的用户环境
 ```
 
@@ -102,7 +102,7 @@ xxx is not in the sudoers file. This incident will be reported.
 ```bash
 # 切换到root用户下
 su root
-# 添加sudo文件的写权限 
+# 添加sudo文件的写权限
 chmod u+w /etc/sudoers
 # 编辑sudoers文件
 vim /etc/sudoers
@@ -125,7 +125,7 @@ username      ALL=(ALL) NOPASSWD: ALL
 ```
 
 ```bash
-# 撤销sudoers文件写权限 
+# 撤销sudoers文件写权限
 chmod u-w /etc/sudoers
 ```
 
@@ -136,5 +136,3 @@ chmod u-w /etc/sudoers
 http://365vcloud.net/2017/11/26/set-linux-super-account-root-in-azure-vm/
 https://www.cyberciti.biz/faq/create-a-user-account-on-ubuntu-linux/
 https://www.digitalocean.com/community/questions/error-permission-denied-publickey-when-i-try-to-ssh
-
-

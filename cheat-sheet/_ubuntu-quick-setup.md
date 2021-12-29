@@ -35,7 +35,7 @@ https://ohmyz.sh/
 ssh-keygen -t rsa
 ```
 
-https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key 
+https://git-scm.com/book/en/v2/Git-on-the-Server-Generating-Your-SSH-Public-Key
 https://www.cnblogs.com/kerrycode/p/9410928.html
 
 
@@ -59,7 +59,7 @@ PasswordAuthentication yes
 ClientAliveInterval 120
 ```
 
-服务器上安装公钥 
+服务器上安装公钥
 
 ```bash
 mkdir -p ~/.ssh && chmod 700 ~/.ssh                # 创建目录
@@ -67,7 +67,7 @@ echo "LOCAL-PUBLIC-KEY" >> ~/.ssh/authorized_keys  # 添加本机公钥
 chmod 600 ~/.ssh/authorized_keys
 ```
 
-密钥方式登录成功后，可编辑配置禁用密码登录 
+密钥方式登录成功后，可编辑配置禁用密码登录
 
 ```bash
 PasswordAuthentication no
@@ -156,9 +156,9 @@ sudo yarn global add pm2
 sudo pm2 startup
 ```
 
-https://nodejs.org/en/download/package-manager/ 
-https://github.com/nodesource/distributions/blob/master/README.md 
-https://yarnpkg.com/en/docs/install#debian-stable 
+https://nodejs.org/en/download/package-manager/
+https://github.com/nodesource/distributions/blob/master/README.md
+https://yarnpkg.com/en/docs/install#debian-stable
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 
 
@@ -213,7 +213,7 @@ sudo ssserver -c /etc/shadowsocks.json -d start
 sudo vi /etc/rc.local
 ```
 
-在`exit 0`之前加一行 
+在`exit 0`之前加一行
 
 ```bash
 /usr/local/bin/ssserver –c /etc/shadowsocks.json
@@ -264,14 +264,14 @@ unsetproxy() {
 
 ## 图形界面开关
 
-方式一：设置默认target 
+方式一：设置默认target
 
 ```bash
 sudo systemctl set-default multi-user.target
 sudo systemctl set-default graphical.target
 ```
 
-方式二：卸载lightdm 
+方式二：卸载lightdm
 
 ```bash
 sudo systemctl disable lightdm.service
@@ -311,4 +311,3 @@ vncserver
 
 
 https://blog.csdn.net/m0_37041325/article/details/80516041
-
