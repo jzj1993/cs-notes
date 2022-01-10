@@ -8,4 +8,4 @@ PVE自身可以联网，LXC容器也可以联网，但是VM虚拟机不能联网
 
 
 
-![image-20210405022118864](pve-network-error.assets/image-20210405022118864.png)
+![image-20210405022118864](images/image-20210405022118864.png)

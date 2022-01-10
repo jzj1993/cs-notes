@@ -4,7 +4,7 @@
 
 ## OSI七层模型
 
-![img](network-learning.assets/2018041112053246.png)
+![img](images/2018041112053246.png)
 
 https://blog.csdn.net/qq_39521554/article/details/79894501
 
@@ -14,7 +14,7 @@ https://blog.csdn.net/qq_39521554/article/details/79894501
 
 https://www.ruanyifeng.com/blog/2012/05/internet_protocol_suite_part_i.html
 
-![img](network-learning.assets/bg2012052902.png)
+![img](images/bg2012052902.png)
 
 
 
@@ -250,7 +250,7 @@ https://www.intel.cn/content/www/cn/zh/support/articles/000005725/wireless/legac
 
 
 
-![img](network-learning.assets/v2-2e2fa90bc67f924095c010de0f644632_1440w.jpg)
+![img](images/v2-2e2fa90bc67f924095c010de0f644632_1440w.jpg)
 
 
 

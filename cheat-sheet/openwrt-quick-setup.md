@@ -107,7 +107,7 @@ reboot
 
 - 和上面相同，但是WAN和LAN口分别绑定到不同的物理端口。
 
-![image-20210405010719360](openwrt-quick-setup.assets/image-20210405010719360.png)
+![image-20210405010719360](images/image-20210405010719360.png)
 
 
 
@@ -150,9 +150,9 @@ OpenWRT - 网络 - DHCP/DNS中，DNS转发添加OpenClash的DNS服务 `127.0.0.1
 curl www.google.com
 ```
 
-![image-20210405011045778](openwrt-quick-setup.assets/image-20210405011045778.png)
+![image-20210405011045778](images/image-20210405011045778.png)
 
-![image-20210405010944777](openwrt-quick-setup.assets/image-20210405010944777.png)
+![image-20210405010944777](images/image-20210405010944777.png)
 
 
 

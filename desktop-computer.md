@@ -58,7 +58,7 @@
 
 参考下面示意图
 
- ![](desktop-computer.assets/flow.png)
+ ![](images/flow.png)
 
 
 
@@ -104,7 +104,7 @@ https://zh.wikipedia.org/wiki/%E7%83%AD%E8%AE%BE%E8%AE%A1%E5%8A%9F%E8%80%97
 
 关于盒装与散片：CPU的散片与盒装的区别？散片一般哪来的？质量与盒装有区别吗？ - 知乎 https://www.zhihu.com/question/50763446
 
-![Cpu, Processor, Chip, Motherboard, Board, Pc, Computer](desktop-computer.assets/cpu-4393376_960_720.jpg)
+![Cpu, Processor, Chip, Motherboard, Board, Pc, Computer](images/cpu-4393376_960_720.jpg)
 
 主板上的CPU。图片来源： [Cpu Processor Chip - Free photo on Pixabay](https://pixabay.com/photos/cpu-processor-chip-motherboard-4393376/)
 
@@ -125,7 +125,7 @@ https://zh.wikipedia.org/wiki/%E7%83%AD%E8%AE%BE%E8%AE%A1%E5%8A%9F%E8%80%97
 
 
 
-![prieiga Pastoviai Kibirkštis b350 b450 - rubberlesque.com](desktop-computer.assets/chipset-processor-support-list.png)
+![prieiga Pastoviai Kibirkštis b350 b450 - rubberlesque.com](images/chipset-processor-support-list.png)
 
 AMD芯片组对CPU的支持。图片来源：[AMD Chipset Comparison: B550 Specs vs. X570, B450, X370, & Zen 3 Support (2020) | GamersNexus - Gaming PC Builds & Hardware Benchmarks](https://www.gamersnexus.net/guides/3582-amd-chipset-differences-b550-vs-x570-b450-x470-zen-3)
 
@@ -139,7 +139,7 @@ AMD芯片组对CPU的支持。图片来源：[AMD Chipset Comparison: B550 Specs
 
 
 
-![img](desktop-computer.assets/v2-d3ee04de98c3e5a8c48a8ac65693e498_1440w.jpg)
+![img](images/v2-d3ee04de98c3e5a8c48a8ac65693e498_1440w.jpg)
 
 表面覆盖了大量散热片的高端主板。图片来源： [【主板上各种接口和附属部件科普】 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/53379889)
 
@@ -166,7 +166,7 @@ AMD芯片组对CPU的支持。图片来源：[AMD Chipset Comparison: B550 Specs
 - 普通用户不建议E-ATX，价格太贵
 - 需要小巧可以选ITX，牺牲一些性能
 
-![Motherboard Sizes Comparison Chart](desktop-computer.assets/Motherboard-Sizes-Comparison-Chart-1024x401.png)
+![Motherboard Sizes Comparison Chart](images/Motherboard-Sizes-Comparison-Chart-1024x401.png)
 
 不同尺寸的主板。图片来源： [The Complete Guide to Motherboard Sizes - EATX vs ATX vs Micro ATX vs Mini ITX - What in Tech](https://whatintech.com/motherboard-size-guide/)
 
@@ -230,7 +230,7 @@ AMD芯片组对CPU的支持。图片来源：[AMD Chipset Comparison: B550 Specs
 1. 通道和工作模式：外观是PCIe x16的插座，实际上可能插座里只有部分触点，工作在x16, x8, x4, x2, x1的模式下（速度会下降）。由于 CPU+芯片组 可以提供的PCIe通道数量有限，不同主板对PCIe通道的分配也不一样，有些主板还可以设置PCIe拆分。我们甚至可以用胶带把PCIe x16的显卡插口右边部分触点贴起来，于是显卡就会工作在PCIe x1的模式下。
 1. PCIe扩展：可以使用南桥芯片/主板板载PLX芯片，将PCIe通道拆分出更多PCIe接口（类似USBHub），可以连接更多设备但是总速率不变。对速度要求高的显卡等设备最好插在直连CPU的PCIe插槽上（一般也就是最靠近CPU的PCIe接口）。
 
-![img](desktop-computer.assets/v2-4af20ccfa9f950e22db202e4a8816219_1440w.jpg)
+![img](images/v2-4af20ccfa9f950e22db202e4a8816219_1440w.jpg)
 
 主板上的PCI-E接口。图片来源： [【主板上各种接口和附属部件科普】 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/53379889)
 
@@ -247,7 +247,7 @@ AMD芯片组对CPU的支持。图片来源：[AMD Chipset Comparison: B550 Specs
 
 下图是AMD X570芯片组的示意图，CPU通过高速接口PCIe连接X570，然后扩展出PCIe、USB、SATA等接口。下图可以看到，有24个直连CPU的PCIe 4.0，其中4个连接X570芯片组，芯片组又扩展出12个PCIe 4.0。
 
-![img](desktop-computer.assets/X570.png)
+![img](images/X570.png)
 
 图片来源： [The AMD X570 Motherboard Overview: Over 35+ Motherboards Analyzed (anandtech.com)](https://www.anandtech.com/show/14161/the-amd-x570-motherboard-overview)
 
@@ -255,7 +255,7 @@ AMD芯片组对CPU的支持。图片来源：[AMD Chipset Comparison: B550 Specs
 
 **相同CPU搭配不同芯片组，最终扩展出的接口也不一样。再考虑主板对这些接口的利用情况，就基本确定了台式机的扩展性。**
 
-![](desktop-computer.assets/11153127871807284111.jpg)
+![](images/11153127871807284111.jpg)
 
 AMD芯片组的参数对比表。图片来源： [ASRock releases AMD A520 Motherboards with support to latest AMD Desktop Processors | Kanto Tech](https://kantotech.ph/2020/08/asrock-releases-amd-a520-motherboards-with-support-to-latest-amd-desktop-processors/)
 
@@ -281,7 +281,7 @@ AMD芯片组的参数对比表。图片来源： [ASRock releases AMD A520 Mothe
 4. 双通道：**在CPU和主板都支持的情况下**，两条内存组成双通道，CPU同时读写两条内存，读写速度变为双倍。消费级CPU一般支持双通道，更高级的CPU还可以支持四通道。组成双通道的两条CPU应该尽可能一致。在购买时会发现，**两条装套条比单条装买2条更贵**，网上的解释是，套装一般是相同批次生产，一致性会更好（但也不排除商家故意提高价格的嫌疑）。
 5. ECC内存（Error-Correcting Code memory）：ECC内存通过增加奇偶校验位，自动进行纠错，从而提高了内存的可靠性，同时价格相对更高。ECC内存常用于服务器。ECC内存和普通内存插槽相同，但是**只有CPU、主板都支持的情况下才能用ECC内存**。一些CPU、主板同时支持普通内存和ECC内存。
 
-![Computer, Computer Hardware, Motherboard, Hardware](desktop-computer.assets/computer-624558_960_720.jpg)
+![Computer, Computer Hardware, Motherboard, Hardware](images/computer-624558_960_720.jpg)
 
 主板上的内存条和内存插槽。图片来源： [Computer Hardware - Free photo on Pixabay](https://pixabay.com/photos/computer-computer-hardware-624558/)
 
@@ -300,13 +300,13 @@ AMD芯片组的参数对比表。图片来源： [ASRock releases AMD A520 Mothe
 
 
 
-![机械硬盘和固态硬盘的区别和特点- 知乎](desktop-computer.assets/v2-528398524f72793aba9b267b88db8f2c_1440w.jpg)
+![机械硬盘和固态硬盘的区别和特点- 知乎](images/v2-528398524f72793aba9b267b88db8f2c_1440w.jpg)
 
 3.5寸机械硬盘、2.5寸机械硬盘、2.5寸固态硬盘，均使用了SATA接口。图片来源： [机械硬盘和固态硬盘的区别和特点 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/26078269)
 
 
 
-![适用于嵌入式系统和定制系统的固态硬盘- 金士顿科技](desktop-computer.assets/ktc-products-ssd-design-in-ssd-hero-md.jpg)
+![适用于嵌入式系统和定制系统的固态硬盘- 金士顿科技](images/ktc-products-ssd-design-in-ssd-hero-md.jpg)
 
 不同规格的固态硬盘。上方是2.5寸SATA接口固态，中间最长的是常见的M2 (M-KEY) 接口、NVMe协议的固态。图片来源： [适用于嵌入式系统和定制系统的固态硬盘 - 金士顿科技 (kingston.com)](https://www.kingston.com/cn/ssd/embedded-purpose-built)
 
@@ -321,7 +321,7 @@ AMD芯片组的参数对比表。图片来源： [ASRock releases AMD A520 Mothe
 
 
 
-![机械硬盘还有什么大招能续命？HDD硬盘100TB容量还有大招__什么值得买](desktop-computer.assets/5e4b4fe83780c9554.jpg_e680.jpg)
+![机械硬盘还有什么大招能续命？HDD硬盘100TB容量还有大招__什么值得买](images/5e4b4fe83780c9554.jpg_e680.jpg)
 
 机械硬盘内部构造。图片来源： [机械硬盘还有什么大招能续命？HDD硬盘100TB容量还有大招__什么值得买 (smzdm.com)](https://post.smzdm.com/p/aekempwz/)
 
@@ -339,7 +339,7 @@ AMD芯片组的参数对比表。图片来源： [ASRock releases AMD A520 Mothe
 
 
 
-![img](desktop-computer.assets/ssd.png)
+![img](images/ssd.png)
 
 常见硬盘接口对比。图片来源：[超能课堂(25)：M.2、U.2谁更好？主流硬盘接口都有哪些？ - 超能网 (expreview.com)](https://www.expreview.com/44982.html)
 
@@ -347,25 +347,25 @@ AMD芯片组的参数对比表。图片来源： [ASRock releases AMD A520 Mothe
 
 [SATA - 维基百科，自由的百科全书 (wikipedia.org)](https://zh.wikipedia.org/wiki/SATA)
 
-![SATA interface - Delta](desktop-computer.assets/sata_img1_d.jpg)
+![SATA interface - Delta](images/sata_img1_d.jpg)
 
 硬盘上的SATA口和SATA数据线。其中宽的15pin是SATA供电口，连接到电源；窄的7pin是SATA数据口，连接到主板；4pin接口是SATA跳线，已经很少用到。图片来源： [SATA interface - Delta (shopdelta.eu)](https://shopdelta.eu/sata-interface_l2_aid809.html)
 
 
 
-![img](desktop-computer.assets/v2-695f8c75fa11100625e18a0536a0df84_1440w.jpg)
+![img](images/v2-695f8c75fa11100625e18a0536a0df84_1440w.jpg)
 
 M.2接口。图片来源：[【如何挑选一块合适的固态硬盘】 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/36900029)
 
 
 
-![img](desktop-computer.assets/SouthEast.jpeg)
+![img](images/SouthEast.jpeg)
 
 U.2接口。图片来源：[双端口NVMe SSD及其在企业级存储系统中的应用_Memblaze-CSDN博客](https://blog.csdn.net/Memblaze_2011/article/details/78928417)
 
 
 
-![img](desktop-computer.assets/Intel_750_10-20210602033353967.jpg)
+![img](images/Intel_750_10-20210602033353967.jpg)
 
 使用PCIe接口的Intel高性能固态硬盘。图片来源：[超能课堂(25)：M.2、U.2谁更好？主流硬盘接口都有哪些？ - 超能网 (expreview.com)](https://www.expreview.com/44982.html)
 
@@ -456,19 +456,19 @@ NAS品牌：
 - 集成显卡 / Integrated Graphics。集成在主板上。一般主板都会有集成声卡，但是不一定有集成显卡。而且由于核显和独显的发展，主板自带显卡越来越少见了。
 - 独立显卡 / Dedicated Graphics Card。独立显卡性能最强，是一块独立电路板的形式，连接到主板上。
 
-![Intel核心显卡进化之路：性能6年翻N倍_电脑百事网](desktop-computer.assets/20160713045608869.jpg)
+![Intel核心显卡进化之路：性能6年翻N倍_电脑百事网](images/20160713045608869.jpg)
 
 核心显卡封装在CPU内部。图片来源： [Intel核心显卡进化之路：性能6年翻N倍_电脑百事网 (pc841.com)](https://m.pc841.com/tech/computer/69275.html)
 
 
 
-![img](desktop-computer.assets/Full-big.jpg)
+![img](images/Full-big.jpg)
 
 主板上的集成显卡，图中标注了GPU的芯片就是，显卡芯片上装有散热片。图片来源： [Review: AMD 785G chipset. ASUS M4A785TD-V motherboard under the spotlight - Mainboard - HEXUS.net - Page 3](https://m.hexus.net/tech/reviews/mainboard/19568-amd-785g-chipset-asus-m4a785td-v-motherboard-spotlight/?page=3)
 
 
 
-![How to Choose a Graphics Card - Newegg Insider](desktop-computer.assets/MSI_3080_11.jpg)
+![How to Choose a Graphics Card - Newegg Insider](images/MSI_3080_11.jpg)
 
 主板上安装的独立显卡。 图片来源： [How to Choose a Graphics Card - Newegg Insider](https://www.newegg.com/insider/how-to-choose-graphics-card/)
 
@@ -488,7 +488,7 @@ NAS品牌：
 
 
 
-![img](desktop-computer.assets/front.jpg)
+![img](images/front.jpg)
 
 未安装散热器的显卡，图中最大的芯片即为GPU。下方为PCIe接口。右上角为显卡独立供电口，需要连接电源。图片来源： [Zotac GeForce RTX 2080 Ti AMP 11 GB Review - Circuit Board Analysis | TechPowerUp](https://www.techpowerup.com/review/zotac-geforce-rtx-2080-ti-amp/5.html)
 
@@ -503,7 +503,7 @@ NAS品牌：
 
 
 
-![img](desktop-computer.assets/v2-d79cad8d5ba0e95f2bb752b962862acb_1440w.jpg)
+![img](images/v2-d79cad8d5ba0e95f2bb752b962862acb_1440w.jpg)
 
 采用涡轮散热的公版显卡，和采用下压式散热的非公版显卡。图片来源： [【公版显卡和非公版显卡有啥区别？】 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/45816942)
 
@@ -580,19 +580,19 @@ NAS品牌：
 
 
 
-![img](desktop-computer.assets/2020033121385617.jpg)
+![img](images/2020033121385617.jpg)
 
 不同规格的电源。图片来源： [ATX/SFX/SFX-L/1U Flex尺寸区别，电源规格尺寸v1.0 – FCPOWERUP极电魔方](https://www.fcpowerup.com/atx-sfx-sfxl-1u-flex-dimension/)
 
 
 
-![img](desktop-computer.assets/7a3e980e7c75e5f4be3578b9b1ceaad7736bbc14-20210602040810947.jpg)
+![img](images/7a3e980e7c75e5f4be3578b9b1ceaad7736bbc14-20210602040810947.jpg)
 
 全模组电源上的输出接口。其中M/B为主板供电，8pin用于CPU或PCI-E供电，6pin用于SATA或其他设备供电。图片来源：[全模组电源线路连接体验-百度经验 (baidu.com)](https://jingyan.baidu.com/article/fa4125ac21fd3028ad709245.html)
 
 
 
-![img](desktop-computer.assets/v2-1a54473695d26c2095eeeee8fc473e0b_1440w.jpg)
+![img](images/v2-1a54473695d26c2095eeeee8fc473e0b_1440w.jpg)
 
 电源线输出接口。包括20+4pin主板供电，4+4pin CPU供电，6+2pin 显卡（PCI-E设备）供电，SATA L口供电，D型4pin万能供电口。图片来源：[【非模组电源，半模组电源，全模组电源有什么区别？】 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/50797978)
 
@@ -618,23 +618,23 @@ NAS品牌：
 
 
 
-![See the source image](desktop-computer.assets/Thermalright_True_Spirit_90_CPU-Kuehler_Test_009.JPG)
+![See the source image](images/Thermalright_True_Spirit_90_CPU-Kuehler_Test_009.JPG)
 
 带有3跟热管的散热器。图片来源： [Thermalright True Spirit 90 | Review | Technic3D](https://www.technic3d.com/review/kuehler/1439-thermalright-true-spirit-90/1.htm)
 
-![有问有答：什么决定了笔记本的散热好坏？ - 超能网](desktop-computer.assets/Y7000.jpg)
+![有问有答：什么决定了笔记本的散热好坏？ - 超能网](images/Y7000.jpg)
 
 笔记本中的热管。图片来源： [有问有答：什么决定了笔记本的散热好坏？ - 超能网 (expreview.com)](https://www.expreview.com/72255.html)
 
 
 
-![img](desktop-computer.assets/v2-08e2ff4a0593d9202e298ee5af1206a8_1440w.jpg)
+![img](images/v2-08e2ff4a0593d9202e298ee5af1206a8_1440w.jpg)
 
 全被动散热。图片来源：[全被动散热且无风扇的静音电脑可以实现吗？- 知乎](https://www.zhihu.com/question/296998101/answer/596517845)
 
 
 
-![Turemetal测试RTX 3080显卡无风扇散热方案：350W，87℃|CPU|显卡|机箱_新浪科技_新浪网](desktop-computer.assets/923a-kkciesr3735340.jpg)
+![Turemetal测试RTX 3080显卡无风扇散热方案：350W，87℃|CPU|显卡|机箱_新浪科技_新浪网](images/923a-kkciesr3735340.jpg)
 
 Turemetal发布的无风扇机箱。图片来源：[Turemetal测试RTX 3080显卡无风扇散热方案：350W，87℃](https://finance.sina.com.cn/tech/2021-02-19/doc-ikftpnny7581846.shtml)
 
@@ -650,31 +650,31 @@ Turemetal发布的无风扇机箱。图片来源：[Turemetal测试RTX 3080显�
 
 下面结合图片介绍常见的风冷散热器。
 
-![img](desktop-computer.assets/20161011104952311.jpg)
+![img](images/20161011104952311.jpg)
 
 涡轮散热器，使用涡轮风扇散热。体积很小，散热能力较差，噪音偏大。涡轮散热一般用在笔记本、服务器、显卡等需要控制厚度的场合，台式机CPU位置空间充足所以很少使用。图片来源： [超薄、静音！Tt推出新款LGA115X处理器散热器 - 周边设备新闻 - 3DMGAME游戏硬件频道](https://3c.3dmgame.com/show-54-4460-1.html)
 
 
 
-![img](desktop-computer.assets/8de6b7fb01d098fc56a065a6636ff8fd_1440w.jpg)
+![img](images/8de6b7fb01d098fc56a065a6636ff8fd_1440w.jpg)
 
 Intel原装CPU散热器，采用下压式散热。下压式散热器的高度较低，散热效果一般。在部分紧凑型台式机箱中由于高度限制，只能使用下压式散热。另外现在市面上很多独立显卡也采用下压式散热。图片来源：[DIY从入门到精通——散热器 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/21330875)
 
 
 
-![img](desktop-computer.assets/5f89686fa695c64287afe6ea8dc86d7a_1440w.jpg)
+![img](images/5f89686fa695c64287afe6ea8dc86d7a_1440w.jpg)
 
 侧吹式散热器，塔式散热，只有单个散热塔因此也称为单塔散热，通常热管越多效果越好。塔式散热器散热效果好，体积大。图片来源：[DIY从入门到精通——散热器 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/21330875)
 
 
 
-![NH-D15](desktop-computer.assets/nh_d15_1_10.jpg)
+![NH-D15](images/nh_d15_1_10.jpg)
 
 公认的顶级风冷：猫头鹰NH-D15，6热管双塔双风扇散热。图片来源： [NH-D15 (noctua.at)](https://noctua.at/en/nh-d15)
 
 
 
-![Noctua NH-D15 Unboxing, Overview & Installation LGA 115x & AM4 - YouTube](desktop-computer.assets/maxresdefault.jpg)
+![Noctua NH-D15 Unboxing, Overview & Installation LGA 115x & AM4 - YouTube](images/maxresdefault.jpg)
 
 安装在M-ATX主板上的NH-D15，可以看出来体积很夸张。如果内存条过高，可能会和上方的风扇冲突，需要注意散热器的说明。图片来源： [Noctua NH-D15 Unboxing, Overview & Installation LGA 115x & AM4 - YouTube](https://www.youtube.com/watch?v=E6YfbCuszUI)
 
@@ -696,7 +696,7 @@ Intel原装CPU散热器，采用下压式散热。下压式散热器的高度较
 6. 冷却液：直接用水，或主要成分是水。
 7. 控制器：一些水冷会有独立的控制器，控制水泵、风扇的供电和RGB灯效。
 
-![升級Aer RGB 2 風扇NZXT Kraken X73 RGB 360mm 一體式水冷- 電腦領域HKEPC Hardware - 全港No.1  PC網站](desktop-computer.assets/14044856361232685274.jpg)
+![升級Aer RGB 2 風扇NZXT Kraken X73 RGB 360mm 一體式水冷- 電腦領域HKEPC Hardware - 全港No.1  PC網站](images/14044856361232685274.jpg)
 
 NZXT一体式360水冷。图片来源：[升級 Aer RGB 2 風扇 NZXT Kraken X73 RGB 360mm 一體式水冷 - 電腦領域 HKEPC Hardware - 全港 No.1 PC網站](https://www.hkepc.com/20075/升級_Aer_RGB_2_風扇_NZXT_Kraken_X73_RGB_360mm_一體式水冷)
 
@@ -741,7 +741,7 @@ NZXT一体式360水冷。图片来源：[升級 Aer RGB 2 風扇 NZXT Kraken X73
 
 
 
-![img](desktop-computer.assets/wallet-colling.jpg)
+![img](images/wallet-colling.jpg)
 
 分体式水冷，这里给CPU和GPU都做了散热，并且使用了定制的硬管。图片来源：[风云MOD 迎广303分体式水冷电脑 双病毒水箱RGB变色_哔哩哔哩_bilibili](https://www.bilibili.com/video/av8926361/)
 
@@ -761,11 +761,11 @@ Computex 2017中，技嘉展出了一款浸没式散热主机。将电路板整�
 
 作为一项前沿技术，浸没式水冷已经在服务器领域有所尝试，但是家用还是太困难了。
 
-![img](desktop-computer.assets/a4c696469197404982ff153250f221b9_th.png)
+![img](images/a4c696469197404982ff153250f221b9_th.png)
 
 图片来源： [这台烧开水的主机是怎么回事？ (sohu.com)](https://www.sohu.com/a/145223545_535128)
 
-![img](desktop-computer.assets/v2-3f715acee4b4aacdea8802991d54905c_1440w.jpg)
+![img](images/v2-3f715acee4b4aacdea8802991d54905c_1440w.jpg)
 
 某玩家做的鱼缸甲基硅油主机。图片来源： [3M Novec氟化液，浸没式（全浸式）冷却电脑主机能家用了吗？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/284156826)
 
@@ -801,7 +801,7 @@ Computex 2017中，技嘉展出了一款浸没式散热主机。将电路板整�
 
 左图是一个比较经典的家用ATX机箱结构，使用风冷散热，带有光驱位。右图则是一个常见的工作站机箱结构，支持E-ATX主板，多个显卡，以及大量可以从机箱正面热插拔的2.5 / 3.5寸硬盘。
 
-![image-20210601032040191](desktop-computer.assets/image-20210601032040191.png)
+![image-20210601032040191](images/image-20210601032040191.png)
 
 
 
@@ -832,7 +832,7 @@ Computex 2017中，技嘉展出了一款浸没式散热主机。将电路板整�
 
 
 
-![image-20210602012550346](desktop-computer.assets/image-20210602012550346.png)
+![image-20210602012550346](images/image-20210602012550346.png)
 
 
 
@@ -879,7 +879,7 @@ Computex 2017中，技嘉展出了一款浸没式散热主机。将电路板整�
 
 - 风扇直径、数量：机箱可以额外加装风扇促进散热，参考机箱说明。
 
-![img](desktop-computer.assets/f9c4b43f8256b1f7.jpg)
+![img](images/f9c4b43f8256b1f7.jpg)
 
 
 
@@ -953,7 +953,7 @@ Computex 2017中，技嘉展出了一款浸没式散热主机。将电路板整�
 
 
 
-![img](desktop-computer.assets/dispbp.jpg)
+![img](images/dispbp.jpg)
 
 散热器表面放大图，有很多肉眼看不见的凹凸。图片来源： [沙场秋点兵，16款导热硅脂大比武 - 超能网 (expreview.com)](https://www.expreview.com/13-all.html)
 
@@ -965,13 +965,13 @@ Computex 2017中，技嘉展出了一款浸没式散热主机。将电路板整�
 
 
 
-![img](desktop-computer.assets/v2-471a8a88b58cc762a3c5dd704d34692c_1440w.jpg)
+![img](images/v2-471a8a88b58cc762a3c5dd704d34692c_1440w.jpg)
 
 液态金属导热效果更好，但价格贵、容易操作失误导电短路。有些CPU顶盖内部会用到，也有用于CPU和散热器之间导热。图片来源：[什么是液态金属导热剂？ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/80766960)
 
 
 
-![img](desktop-computer.assets/O1CN01zGAopl1QkS9s8bcN5_!!60002014.jpg)
+![img](images/O1CN01zGAopl1QkS9s8bcN5_!!60002014.jpg)
 
 对于SSD等发热较小的设备，可使用导热硅胶片导热，填充高度不一致的器件。图片来源： [淘宝网 (taobao.com)](https://item.taobao.com/item.htm?spm=a230r.1.14.122.6c846107O2Re4b&id=583750643362&ns=1&abbucket=20#detail)
 
@@ -1007,7 +1007,7 @@ Computex 2017中，技嘉展出了一款浸没式散热主机。将电路板整�
 - 如果是水冷，可以在顶部安装冷排，机箱后方安装一个机箱风扇，前面板可以安装风扇进气。
 - 如果是风冷，CPU散热器朝机箱后侧吹风，前后面板和CPU散热器高度接近的地方再装两个风扇分别负责进气和出气，顶部靠后位置可以再加个风扇抽走热空气。
 
-![img](desktop-computer.assets/v2-ed32633f049da80d61e617691a10cb23_1440w.jpg)
+![img](images/v2-ed32633f049da80d61e617691a10cb23_1440w.jpg)
 
 图片来源： [机箱风道设计 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/293617934)
 

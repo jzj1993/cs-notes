@@ -119,7 +119,7 @@ password=123               ; (default is no password (open server))
 
 云主机上配置port为`*:9001`，重启supervisor服务，从浏览器访问主机的9001端口，输入用户名密码即可打开Web后台，如图。
 
-![img](supervisor.assets/e8dcada1-20af-4462-b78e-9249f333248e.png)
+![img](images/e8dcada1-20af-4462-b78e-9249f333248e.png)
 
 
 

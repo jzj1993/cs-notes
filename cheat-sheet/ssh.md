@@ -23,7 +23,7 @@ ssh user@host 'mkdir -p .ssh cat >> .ssh/authorized_keys' < ~/.ssh/id_rsa.pub
 
 ### 动态端口转发（Socks代理服务器）
 
-![image-20210227232148061](ssh.assets/image-20210227232148061.png)
+![image-20210227232148061](images/image-20210227232148061.png)
 
 localhost通过ssh server连接动态指定的dest server。
 - 此时ssh server充当Socks代理服务器。
@@ -41,7 +41,7 @@ ssh -D 9090 -N -f user@remote.host
 
 ### 本地端口转发
 
-![image-20210227225414768](ssh.assets/image-20210227225414768.png)
+![image-20210227225414768](images/image-20210227225414768.png)
 
 localhost通过ssh server连接到dest server。
 
@@ -65,7 +65,7 @@ ssh -L 5901:localhost:5901 -N -f user@ssh-server.com
 
 ### 远程端口转发（内网穿透）
 
-![image-20210227230204641](ssh.assets/image-20210227230204641.png)
+![image-20210227230204641](images/image-20210227230204641.png)
 
 ssh server通过localhost连接到dest server。
 

@@ -24,7 +24,7 @@ opkg install ddns-scripts_godaddy.com-v1
 
 服务 - 动态DNS（如果没有可以尝试重启）- 编辑现有的或者新增配置项。
 
-![image-20210328080522496](openwrt-ddns-godaddy.assets/image-20210328080522496.png)
+![image-20210328080522496](images/image-20210328080522496.png)
 
 
 
@@ -36,17 +36,17 @@ opkg install ddns-scripts_godaddy.com-v1
 
 
 
-![image-20210328075509053](openwrt-ddns-godaddy.assets/image-20210328075509053.png)
+![image-20210328075509053](images/image-20210328075509053.png)
 
 高级设置：如果是OpenWRT自己拨号的，WAN口就是公网，可以把IP地址来源选择为接口`pppoe-wan`，如图所示。如果不是，通常用默认的“网络”即可。
 
 计时器设定可以按需修改。如果工作不正确，可以看看日志查看器。
 
-![image-20210328075838032](openwrt-ddns-godaddy.assets/image-20210328075838032.png)
+![image-20210328075838032](images/image-20210328075838032.png)
 
 最后记得保存，并点击启动进程。
 
-![image-20210328080627662](openwrt-ddns-godaddy.assets/image-20210328080627662.png)
+![image-20210328080627662](images/image-20210328080627662.png)
 
 
 
