@@ -414,7 +414,7 @@ U.2接口。图片来源：[双端口NVMe SSD及其在企业级存储系统中�
 
 
 
-### 网络附加存储 / NAS / **N**etwork **A**ttached **S**torage
+### 网络附加存储 / NAS / Network Attached Storage
 
 NAS相当于一个硬盘容量很大的小电脑，专门用于保存数据，其他设备通过网络访问NAS上的数据。
 
@@ -883,7 +883,7 @@ Computex 2017中，技嘉展出了一款浸没式散热主机。将电路板整�
 
 
 
-<img src="desktop-computer.assets/image-20210601023357115.png" alt="image-20210601023357115" style="zoom:50%;" />
+![](images/image-20210601023357115.png)
 
 机箱结构与尺寸限制。图片来源： [京东 (jd.com)](https://item.jd.com/100007984845.html)
 
@@ -959,7 +959,7 @@ Computex 2017中，技嘉展出了一款浸没式散热主机。将电路板整�
 
 
 
-![img](desktop-computer.assets/zerotherm.jpg)
+![](images/zerotherm.jpg)
 
 导热硅脂涂抹方法示范。图片来源：  [沙场秋点兵，16款导热硅脂大比武 - 超能网 (expreview.com)](https://www.expreview.com/13-all.html)
 
