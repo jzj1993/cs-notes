@@ -73,6 +73,17 @@ deb http://download.proxmox.com/debian/pve stretch pve-no-subscription
 http://enterprise.proxmox.com/debian/pve/dists/buster/pvetest/binary-amd64/
 
 
+## 去掉登录后No Valid Subscription弹窗
+
+参考： https://johnscs.com/remove-proxmox51-subscription-notice/
+
+```bash
+cd /usr/share/javascript/proxmox-widget-toolkit
+cp proxmoxlib.js proxmoxlib.js.bak
+vim proxmoxlib.js
+# remove Ext.Msg.show({title: gettext('No valid subscription')
+systemctl restart pveproxy.service
+```
 
 ## 安装ifupdown2
 
