@@ -26,10 +26,17 @@ vim /etc/config/network
 #   option ipaddr '192.168.5.5'
 #   option gateway '192.168.5.2'
 #   list dns '192.168.5.2'
+
+# 有条件最好给openwrt开启透明代理，方便后续步骤进行。
+# 具体方式就是将上面的gateway和dns指向另一个透明代理路由器。
+# 如果没有代理可以手动下载ipk包安装，但是太繁琐了。
+
+# 重启网络生效
 /etc/init.d/network restart
 
-# 给openwrt开启透明代理，方便后续步骤进行。
-# 如果没有代理可以手动下载ipk包安装，但是太繁琐了。
+# 检查网络
+curl www.baidu.com
+curl www.google.com
 
 # ssh连接openwrt
 ```
