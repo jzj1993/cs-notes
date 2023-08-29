@@ -12,8 +12,10 @@
 
 ## 磁盘设备、分区查看 df lsblk fdisk
 
+
+
 ```bash
-$ df -h               # 查看挂载的磁盘分区（文件系统）
+$ df -h               # 查看挂载的磁盘分区（文件系统），不支持LVM
 Filesystem      Size  Used Avail Use% Mounted on
 # ...
 udev            3.9G     0  3.9G   0% /dev
@@ -61,8 +63,6 @@ Device     Start       End   Sectors Size Type
 $ ll /dev/disk/by-uuid    # 根据UUID查看磁盘
 $ ll /dev/disk/by-id      # 根据ID查看磁盘
 ```
-
-
 
 ## 分区工具 fdisk
 
@@ -165,6 +165,50 @@ e2fsck /dev/sdb -fy
 ```
 
 
+## LVM
+
+进入lvm工具
+```bash
+lvm
+```
+LVM工具常用命令
+
+```bash
+# 查看帮助
+lvm> help
+```
+
+列举volume
+```bash
+# 查看physical volume
+lvm> pvs
+  PV             VG  Fmt  Attr PSize    PFree 
+  /dev/nvme0n1p3 pve lvm2 a--  <931.01g 15.99g
+
+# 查看volume group
+lvm> vgs
+  VG  #PV #LV #SN Attr   VSize    VFree 
+  pve   1  14   0 wz--n- <931.01g 15.99g
+
+# 查看logical volume
+lvm> lvs
+  LV                                       VG  Attr       LSize    Pool Origin                            Data%  Meta%  Move Log Cpy%Sync Convert
+  data                                     pve twi-aotz-- <794.79g                                        87.11  4.20                            
+  root                                     pve -wi-ao----   96.00g                                                                               
+  snap_vm-100-disk-0_EnvironmentConfigured pve Vri---tz-k   64.00g data                                                      
+  swap                                     pve -wi-ao----    8.00g                                                                               
+  vm-100-disk-0                            pve Vwi-a-tz--   64.00g data snap_vm-100-disk-0_GnomeInstalled 7.76                                   
+  vm-100-state-EnvironmentConfigured       pve Vwi-a-tz--  <16.49g data                                   5.68                                   
+  vm-101-disk-0                            pve Vwi-a-tz--   32.00g data                                   14.36                                  
+  vm-103-disk-0                            pve Vwi-a-tz--   32.00g data                                   25.77     
+```
+
+查看volume具体信息
+```bash
+pvdisplay   # show physical volumes
+vgdisplay   # show volume groups (including free space available)
+lvdisplay   # show logical volumes
+```
 
 ## LVM分区扩容/缩容
 
