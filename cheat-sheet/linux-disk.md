@@ -64,6 +64,15 @@ $ ll /dev/disk/by-uuid    # 根据UUID查看磁盘
 $ ll /dev/disk/by-id      # 根据ID查看磁盘
 ```
 
+## 分区工具 cfdisk
+
+```bash
+# 打开硬盘
+cfdisk /dev/sdc
+
+# 交互界面编辑分区
+```
+
 ## 分区工具 fdisk
 
 ```bash
