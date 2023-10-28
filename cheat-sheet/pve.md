@@ -1,6 +1,4 @@
-# PVE
-
-
+# PVE常用配置
 
 ## 网络基础配置
 
@@ -15,6 +13,8 @@ nano /etc/hosts
 
 # restart network
 /etc/init.d/networking restart
+# or
+systemctl restart networking
 
 # restart network card
 ifreload NETWORK
@@ -22,7 +22,58 @@ ifreload NETWORK
 ifdown NETWORK && ifup NETWORK
 ```
 
+静态IP示例：
 
+```bash
+auto lo
+iface lo inet loopback
+
+iface enp1s0 inet manual
+
+auto vmbr0
+iface vmbr0 inet static
+        address 192.168.124.17/24
+        gateway 192.168.124.1
+        bridge-ports enp1s0
+        bridge-stp off
+        bridge-fd 0
+```
+
+DHCP动态获取IP示例：
+
+```bash
+auto lo
+iface lo inet loopback
+
+iface enp1s0 inet manual
+
+auto vmbr0
+iface vmbr0 inet dhcp
+        bridge-ports enp1s0
+        bridge-stp off
+        bridge-fd 0
+```
+
+
+修改PVE启动时显示的欢迎文字中的IP地址
+
+```bash
+nano /etc/issue
+nano /etc/hosts
+```
+
+```bash
+
+------------------------------------------------------------------------------
+
+Welcome to the Proxmox Virtual Environment. Please use your web browser to 
+configure this server - connect to:
+
+  https://192.168.5.12:8006/
+
+------------------------------------------------------------------------------
+
+```
 
 ## 固定IPv6配置
 
@@ -42,6 +93,7 @@ IPv6+网关地址的确定：
 vim /etc/apt/sources.list
 ```
 
+其中`buster`根据PVE版本不同
 ```bash
 deb http://mirrors.aliyun.com/debian/ buster main non-free contrib
 deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib
@@ -53,19 +105,46 @@ deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib
 deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib
 ```
 
+PVE 8.0默认的源文件是
+```bash
+deb http://ftp.debian.org/debian bookworm main contrib
 
+deb http://ftp.debian.org/debian bookworm-updates main contrib
+
+# security updates
+deb http://security.debian.org bookworm-security main contrib
+```
 
 ## Enterprise源
+
+默认的Enterprise源在 apt update时会报错
+
+```
+E: Failed to fetch https://enterprise.proxmox.com/debian/ceph-quincy/dists/bookworm/InRelease  401  Unauthorized [IP: 51.79.228.122 443]
+E: The repository 'https://enterprise.proxmox.com/debian/ceph-quincy bookworm InRelease' is not signed.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+```
 
 替换默认需要subscription的源为不需要subscription的源
 
 ```bash
-vim /etc/apt/sources.list.d/pve-enterprise.list
+nano /etc/apt/sources.list.d/pve-enterprise.list
 ```
 
+其中`buster`根据PVE版本不同
 ```bash
-deb http://download.proxmox.com/debian/pve stretch pve-no-subscription
+deb http://download.proxmox.com/debian/pve buster pve-no-subscription
 # deb https://enterprise.proxmox.com/debian/pve buster pve-enterprise
+```
+
+```
+nano /etc/apt/sources.list.d/ceph.list
+```
+
+```
+deb http://download.proxmox.com/debian/ceph-quincy bookworm enterprise
+#deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm enterprise
 ```
 
 也可以手动下载包
@@ -73,7 +152,7 @@ deb http://download.proxmox.com/debian/pve stretch pve-no-subscription
 http://enterprise.proxmox.com/debian/pve/dists/buster/pvetest/binary-amd64/
 
 
-## 去掉登录后No Valid Subscription弹窗
+## 去掉网页登录后No Valid Subscription弹窗
 
 参考： https://johnscs.com/remove-proxmox51-subscription-notice/
 
@@ -89,7 +168,9 @@ systemctl restart pveproxy.service
 
 在网页修改网络参数，Apply Configuration的时候报错如下
 
-> you need ifupdown2 to reload network configuration (500)
+```
+you need ifupdown2 to reload network configuration (500)
+```
 
 安装 `ifupdown2` 即可解决。首先确保已经添加了 `pve-no-subsciption` 源，然后用apt安装即可：
 
