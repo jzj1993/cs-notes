@@ -3,13 +3,12 @@
 ## 网络基础配置
 
 ```bash
-# show ip address
+# show network interface name and ip address
+ip a
 ip addr
 
 # modify network settings
 nano /etc/network/interfaces
-nano /etc/issue
-nano /etc/hosts
 
 # restart network
 /etc/init.d/networking restart
@@ -22,7 +21,7 @@ ifreload NETWORK
 ifdown NETWORK && ifup NETWORK
 ```
 
-静态IP示例：
+`/etc/network/interfaces` 静态IP示例：
 
 ```bash
 auto lo
@@ -39,7 +38,7 @@ iface vmbr0 inet static
         bridge-fd 0
 ```
 
-DHCP动态获取IP示例：
+`/etc/network/interfaces` DHCP动态获取IP示例：
 
 ```bash
 auto lo
